@@ -1,4 +1,4 @@
-no_of_pagedowns=2
+no_of_pagedowns=1
 _add_for_all_reviews="&showAllReviews=true"
 output_location='app_reviews/outputs/'
 output_pickle_location=output_location+"pickles/"
