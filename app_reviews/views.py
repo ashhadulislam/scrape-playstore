@@ -36,6 +36,7 @@ def get_reviews(request):
 	print("data is",url)
 	word_cloud_image_location=None
 	status,xls_name,word_cloud_image_location=scripts.get_reviews(url,stop_words)
+	print("After processing reviews ",status,xls_name,word_cloud_image_location)
 	# status,xls_name=scripts.get_reviews(url,stop_words)
 	if status == False:
 		result_string="Sorry, process failed"
