@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+<head>
+  <title>The android app review viz</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+	
+
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'app_reviews:get_reviews' %}" method="post">
+{% csrf_token %}
+
+
+<div class="container">
+	  <h2>Details</h2>
+	  <!-- <form action="/get_reviews"> -->
+	    <div class="form-group">
+	      <label for="App URL">Enter the URL of App in play store:</label>
+	      <input type="text" class="form-control" id="app_url" placeholder="Example:https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile" name="app_url">
+	    </div>
+
+	    <div class="form-group">
+	      <label for="Stop Words">Enter some stop words that are not useful:</label>
+	      <input type="text" class="form-control" id="stop_words" placeholder="Example:app, phone, bank" name="stop_words">
+	    </div>
+
+	    <button type="submit" class="btn btn-default">Submit</button>
+	  </form>
+</div>
+
+
+</form>
+
+
+<div>
+	
+	{% block body %}{% endblock %}
+</div>
+
+
+</html>
