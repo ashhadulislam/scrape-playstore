@@ -289,6 +289,7 @@ def NLP_Flow(df,column_name,stop_words):
 
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
+    print("going to save at ",constants.media_location)
     plt.savefig(constants.media_location+"wordcloud.png")
     print(constants.media_location,"wordcloud.png")
     return constants.media_location+"wordcloud.png"
