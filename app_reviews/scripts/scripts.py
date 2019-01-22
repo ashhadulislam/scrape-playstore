@@ -291,7 +291,7 @@ def NLP_Flow(df,column_name,stop_words):
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
     print("current directory is ",os.getcwd())
-    print(contstants.media_location, os.path.exists(contstants.media_location))
+    print(constants.media_location, " ", os.path.exists(constants.media_location))
     print("going to save at ",constants.media_location)
 
     plt.savefig(constants.media_location+"wordcloud.png")
