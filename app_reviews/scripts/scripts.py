@@ -223,7 +223,7 @@ def get_reviews(url,stop_words):
 
     print("written to xls")
 
-    return True, xls_name
+    return True, xls_name,word_cloud_image_location
 
 
 
