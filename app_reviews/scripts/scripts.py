@@ -8,6 +8,7 @@ from selenium.webdriver.common.keys import Keys
 import pandas as pd
 from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options  
+import os
 
 
 def browser_functions(url):
@@ -289,7 +290,10 @@ def NLP_Flow(df,column_name,stop_words):
 
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
+    print("current directory is ",os.getcwd())
+    print(contstants.media_location, os.path.exists(contstants.media_location))
     print("going to save at ",constants.media_location)
+
     plt.savefig(constants.media_location+"wordcloud.png")
     print(constants.media_location,"wordcloud.png")
     return constants.media_location+"wordcloud.png"
