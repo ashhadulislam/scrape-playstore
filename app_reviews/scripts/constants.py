@@ -4,8 +4,8 @@ output_location='app_reviews/outputs/'
 output_pickle_location=output_location+"pickles/"
 media_location='media/app_review_tools/'
 
-# env="heroku_uat"
-env="dev"
+env="heroku_uat"
+# env="dev"
 
 if env=="heroku_uat":
 	chrome_driver_location='/app/.chromedriver/bin/chromedriver'
