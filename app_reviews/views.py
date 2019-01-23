@@ -18,7 +18,7 @@ def index(request):
     # return HttpResponse(None,template.render( request))
     # return HttpResponse("Hello, world. You're at the polls index.")
 
-    print("url /app/media/app_review_tools/wordcloud.png" , " is it there? ", os.path.exists("/app/media/app_review_tools/wordcloud.png"))
+    print("url app_reviews/outputs/wordcloud.png" , " is it there? ", os.path.exists("app_reviews/outputs//wordcloud.png"))
 
     return render(request, 'app_reviews/index.html')
 
