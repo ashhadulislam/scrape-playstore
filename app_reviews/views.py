@@ -14,16 +14,16 @@ from .scripts import scripts
 import os
 
 def index(request):
-    # template = loader.get_template('app_reviews/index.html')
-    # return HttpResponse(None,template.render( request))
-    # return HttpResponse("Hello, world. You're at the polls index.")
+	# template = loader.get_template('app_reviews/index.html')
+	# return HttpResponse(None,template.render( request))
+	# return HttpResponse("Hello, world. You're at the polls index.")
 
-    print("url app_reviews/outputs/wordcloud.png" , " is it there? ", os.path.exists("app_reviews/outputs//wordcloud.png"))
-    path="/app/app_reviews/outputs/"
-    print(path," \n",os.listdir(path))
+	print("url app_reviews/outputs/wordcloud.png" , " is it there? ", os.path.exists("app_reviews/outputs//wordcloud.png"))
+	path="/app/app_reviews/outputs/"
+	print(path," \n",os.listdir(path))
 
 
-    return render(request, 'app_reviews/index.html')
+	return render(request, 'app_reviews/index.html')
 
 
 def get_reviews(request):
@@ -55,7 +55,7 @@ def get_reviews(request):
 		print(wc_img_url , " is it there? ", os.path.exists(wc_img_url))
 		
 		path="/app/app_reviews/outputs/"
-    	print(path," \n",os.listdir(path))
+			print(path," \n",os.listdir(path))
 
 
 
@@ -84,9 +84,9 @@ def get_reviews_csv(request):
 
 
 # class IndexView(generic.ListView):
-#     # template = loader.get_template('app_reviews/index.html')
-#         # context_object_name = 'latest_question_list'
+#	 # template = loader.get_template('app_reviews/index.html')
+#		 # context_object_name = 'latest_question_list'
 
-#     def get_queryset(self):
-#         """Return the last five published questions."""
-#         return "hello"
+#	 def get_queryset(self):
+#		 """Return the last five published questions."""
+#	     return "hello"
