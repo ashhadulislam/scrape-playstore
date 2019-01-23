@@ -17,6 +17,9 @@ def index(request):
     # template = loader.get_template('app_reviews/index.html')
     # return HttpResponse(None,template.render( request))
     # return HttpResponse("Hello, world. You're at the polls index.")
+
+    print("url /app/media/app_review_tools/wordcloud.png" , " is it there? ", os.path.exists("/app/media/app_review_tools/wordcloud.png"))
+
     return render(request, 'app_reviews/index.html')
 
 
@@ -64,7 +67,6 @@ def get_reviews_csv(request):
 		xls_name=str(request.POST["reviews_csv"])
 		print("File is at ", xls_name)
 		return serve(request, os.path.basename(xls_name), os.path.dirname(xls_name))
-
 
 
 
