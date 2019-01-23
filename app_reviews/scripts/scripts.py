@@ -294,11 +294,24 @@ def NLP_Flow(df,column_name,stop_words):
     print(constants.output_location, " is there? ", os.path.exists(constants.output_location))
     print("going to save at ",constants.output_location)
     plot_location=constants.output_location+"wordcloud.png"
+    plot_location_out=constants.output_location+"wordcloud_out.png"
+
 
     plt.savefig(plot_location)
     print("Saved at ",plot_location)
+
+    with open(plot_location, 'rb') as f:
+        data = f.read()
+
+    with open(plot_location_out, 'wb') as f:
+        f.write(data)
+
+
+
+
     print(plot_location , " is there? ", os.path.exists(plot_location))
-    return plot_location
+    print(plot_location_out , " is there? ", os.path.exists(plot_location_out))
+    return plot_location_out
 
 
 
