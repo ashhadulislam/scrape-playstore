@@ -19,6 +19,9 @@ def index(request):
     # return HttpResponse("Hello, world. You're at the polls index.")
 
     print("url app_reviews/outputs/wordcloud.png" , " is it there? ", os.path.exists("app_reviews/outputs//wordcloud.png"))
+    path="/app/app_reviews/outputs/"
+    print(path," \n",os.listdir(path))
+
 
     return render(request, 'app_reviews/index.html')
 
@@ -47,7 +50,16 @@ def get_reviews(request):
 		result_string="Extracted succesfully"
 		reviews_csv=xls_name
 		wc_img_url=word_cloud_image_location
+		
+
 		print(wc_img_url , " is it there? ", os.path.exists(wc_img_url))
+		
+		path="/app/app_reviews/outputs/"
+    	print(path," \n",os.listdir(path))
+
+
+
+
 		context = {'result_string': result_string, 'reviews_csv':reviews_csv,'word_cloud_image_url':wc_img_url}
 		#return the excel file
 		# return serve(request, os.path.basename(xls_name), os.path.dirname(xls_name))
