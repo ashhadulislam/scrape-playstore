@@ -44,6 +44,7 @@ def get_reviews(request):
 		result_string="Extracted succesfully"
 		reviews_csv=xls_name
 		wc_img_url=word_cloud_image_location
+		print(wc_img_url , " is it there? ", os.path.exists(wc_img_url))
 		context = {'result_string': result_string, 'reviews_csv':reviews_csv,'word_cloud_image_url':wc_img_url}
 		#return the excel file
 		# return serve(request, os.path.basename(xls_name), os.path.dirname(xls_name))
