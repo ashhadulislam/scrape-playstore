@@ -11,7 +11,49 @@ from selenium.webdriver.chrome.options import Options
 import os
 
 
+
+#for special character removala from url
+import re
+def get_pickle_name(url):
+    remove_char_list=['/','?','=','.','&']
+    url=url.replace("https://play.google.com/store/apps","")
+    url=url.replace("&showAllReviews=true","")
+    for char_rem in remove_char_list:
+        url=url.replace(char_rem,"")
+    url=url.replace("detailsidcom","")
+
+    return constants.output_pickle_location+url+"_df.pkl"
+
+
+#this is to check how old the pkl file is 
+import time
+def is_more_than_a_week_old(df_pkl_name):
+    then = os.path.getmtime(df_pkl_name)
+    now=time.time()
+    minutes_diff=int((now-then)/60)
+    print("age of pickle in minutes is ",minutes_diff)
+    #number of m inutes in a week
+    minutes_in_a_week=(7*24*60)
+    if minutes_diff>minutes_in_a_week:
+        #too old must build a new pickle
+        return True 
+    else:
+        return False
+
+
 def browser_functions(url):
+
+
+    #check if pickle file has already been made
+    df_pkl_name=get_pickle_name(url)
+    print("looking for",df_pkl_name)
+
+    if os.path.isfile(df_pkl_name):
+        print("Relax! Pickle exists")
+        isOld=is_more_than_a_week_old(df_pkl_name)
+        print("Is old",isOld)
+        if not isOld:
+            return True,None
 
     env=constants.env
     print("The env is ",env)
@@ -66,7 +108,7 @@ def browser_functions(url):
     print("got source successfully")
     browser.close()
 
-    return source
+    return False,source
 
 def parse_html_page(source):
 
@@ -157,7 +199,7 @@ def parse_html_page(source):
     return df
 
 
-
+import pickle
 
 def get_reviews(url,stop_words):
 
@@ -168,19 +210,37 @@ def get_reviews(url,stop_words):
         url=url+adder
     print("URL before call is",url)
 
+    #
+
     
     #get html source data after clicking on more review and tapping END
-    html_source=browser_functions(url)
-    if html_source==None:
-        return False, None
+    pickle_status,html_source=browser_functions(url)
+
+    df_pkl_name=get_pickle_name(url)
+
+    if pickle_status:
+        #df can be found in pkl
+        df=pickle.load(open(df_pkl_name,"rb"))
+
+    else:
+
+
+
+
+
+        if html_source==None:
+            return False, None
 
     
-    #parse the source to get the different components of the review
-    df=parse_html_page(html_source)
+        #parse the source to get the different components of the review
+        df=parse_html_page(html_source)
     
 
-    if df is None:
-        return False, None
+        if df is None:
+
+            print("empty data frame")
+            return False, None
+        pickle.dump(df,open(df_pkl_name,"wb"))
 
     
     df.to_csv(constants.output_location+"app_revs.csv")

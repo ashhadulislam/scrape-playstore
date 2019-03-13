@@ -27,4 +27,4 @@ elif env=="dev":
 	media_location=os.path.join(current_dir,"media","app_reviews")
 	output_location=os.path.join(current_dir,"app_reviews","outputs")
 
-output_pickle_location=output_location+"pickles/"
+output_pickle_location=os.path.join(output_location,"pickles")
