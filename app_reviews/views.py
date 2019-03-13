@@ -55,7 +55,10 @@ def get_reviews(request):
 		print(wc_img_url , " is it there? ", os.path.exists(wc_img_url))
 		
 		path="/app/app_reviews/outputs/"
-			print(path," \n",os.listdir(path))
+		print(path , " is it there? ", os.path.exists(path))
+		if os.path.exists(path) is False:
+			print("This is not the correct env to expect the path")
+		print(path," \n",os.listdir(path))
 
 
 
