@@ -24,12 +24,42 @@
 	  <!-- <form action="/get_reviews"> -->
 	    <div class="form-group">
 	      <label for="App URL">Enter the URL of App in play store:</label>
-	      <input type="text" class="form-control" id="app_url" placeholder="Example:https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile" name="app_url">
+
+
+	      {% if play_store_url %} 
+	      	<input type="text" class="form-control" id="app_url" value="{{play_store_url}}" name="app_url">
+
+ 	      {% else %}
+	      	<input type="text" class="form-control" id="app_url" placeholder="Example:https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile" name="app_url">
+      	{% endif %}
+
+      		
+
+
 	    </div>
 
 	    <div class="form-group">
 	      <label for="Stop Words">Enter some stop words that are not useful:</label>
+
+	      {% if stop_words %}
+
+
+	      <input type="text" class="form-control" id="stop_words" value="{{stop_words}}" name="stop_words">
+
+
+
+	      {% else %}
+
+
 	      <input type="text" class="form-control" id="stop_words" placeholder="Example:app, phone, bank" name="stop_words">
+
+
+
+	      {% endif %}
+
+	    
+
+
 	    </div>
 
 	    <button type="submit" class="btn btn-default">Submit</button>

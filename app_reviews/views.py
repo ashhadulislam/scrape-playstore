@@ -62,9 +62,9 @@ def get_reviews(request):
 		# print(path," \n",os.listdir(path))
 
 
-
-
-		context = {'result_string': result_string, 'reviews_csv':reviews_csv,'word_cloud_image_url':wc_img_url}
+		if stop_words is not None:
+			stop_words=', '.join(stop_words)
+		context = {'result_string': result_string, 'reviews_csv':reviews_csv,'word_cloud_image_url':wc_img_url,'play_store_url':url,'stop_words':stop_words}
 		#return the excel file
 		# return serve(request, os.path.basename(xls_name), os.path.dirname(xls_name))
 		return render(request, 'app_reviews/index.html',context)
