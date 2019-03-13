@@ -17,7 +17,11 @@
 <!-- this part to get the word cloud -->
 <div class = "container">
 {% if word_cloud_image_url %}
+	<p>wc is at </p>
+	<p>{{word_cloud_image_url}}<p>
+	<p>eos</p>
 	<p><img src="/app/app_reviews/outputs/wordcloud.png" alt="wordcloud"></p>
+	<!-- <p><img src="{{word_cloud_image_url}}" alt="wordcloud"></p> -->
 {% else %}
     <p>No wordcloud yet.</p>
 {% endif %}

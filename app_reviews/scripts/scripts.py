@@ -199,7 +199,7 @@ def get_reviews(url,stop_words):
     result_df_list=[]
     result_df_list.append(df)
 
-    xls_name=constants.output_location+ "result.xlsx"
+    xls_name=os.path.join(constants.output_location, "result.xlsx")
     
     from openpyxl import Workbook
     from openpyxl.utils.dataframe import dataframe_to_rows
@@ -293,8 +293,10 @@ def NLP_Flow(df,column_name,stop_words):
     print("current directory is ",os.getcwd())
     print(constants.output_location, " is there? ", os.path.exists(constants.output_location))
     print("going to save at ",constants.output_location)
-    plot_location=constants.output_location+"wordcloud.png"
-    plot_location_out=constants.output_location+"wordcloud_out.png"
+    plot_location=os.path.join(constants.output_location,"wordcloud.png")
+    plot_location_out=os.path.join(constants.output_location,"wordcloud_out.png")
+
+    print("source location is ",os.getcwd())
 
 
     plt.savefig(plot_location)

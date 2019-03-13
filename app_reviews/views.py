@@ -18,9 +18,10 @@ def index(request):
 	# return HttpResponse(None,template.render( request))
 	# return HttpResponse("Hello, world. You're at the polls index.")
 
-	print("url app_reviews/outputs/wordcloud.png" , " is it there? ", os.path.exists("app_reviews/outputs//wordcloud.png"))
-	path="/app/app_reviews/outputs/"
-	print(path," \n",os.listdir(path))
+
+	# print("url app_reviews/outputs/wordcloud.png" , " is it there? ", os.path.exists("app_reviews/outputs//wordcloud.png"))
+	# path="/app/app_reviews/outputs/"
+	# print(path," \n",os.listdir(path))
 
 
 	return render(request, 'app_reviews/index.html')
@@ -54,11 +55,11 @@ def get_reviews(request):
 
 		print(wc_img_url , " is it there? ", os.path.exists(wc_img_url))
 		
-		path="/app/app_reviews/outputs/"
-		print(path , " is it there? ", os.path.exists(path))
-		if os.path.exists(path) is False:
-			print("This is not the correct env to expect the path")
-		print(path," \n",os.listdir(path))
+		# path="/app/app_reviews/outputs/"
+		# print(path , " is it there? ", os.path.exists(path))
+		# if os.path.exists(path):
+		# 	print("This is not the correct env to expect the path")
+		# print(path," \n",os.listdir(path))
 
 
 
