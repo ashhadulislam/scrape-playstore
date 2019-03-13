@@ -7,7 +7,7 @@ _add_for_all_reviews="&showAllReviews=true"
 current_dir=os.getcwd()
 print("current directory is ",current_dir)
 # env="heroku_uat"
-env="dev"
+env="heroku_uat"
 
 if env=="heroku_uat":
 	# chrome_driver_location='/app/.chromedriver/bin/chromedriver'
