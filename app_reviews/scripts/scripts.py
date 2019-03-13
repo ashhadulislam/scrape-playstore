@@ -293,27 +293,29 @@ def NLP_Flow(df,column_name,stop_words):
     print("current directory is ",os.getcwd())
     print(constants.output_location, " is there? ", os.path.exists(constants.output_location))
     print("going to save at ",constants.output_location)
-    plot_location=os.path.join(constants.output_location,"wordcloud.png")
-    plot_location_out=os.path.join(constants.output_location,"wordcloud_out.png")
+    print("How about saving it at ",constants.media_location)
+    plot_location=os.path.join(constants.media_location,"wordcloud.png")
+    # plot_location="/media/app_reviews/wordcloud.png"
 
-    print("source location is ",os.getcwd())
+    
 
+    # print("source location is ",os.getcwd())
 
-    plt.savefig(plot_location)
+    try:
+        plt.savefig(plot_location)
+    except Exception as e:
+        print("saving is more diff")
+        raise e
+    
     print("Saved at ",plot_location)
-
-    with open(plot_location, 'rb') as f:
-        data = f.read()
-
-    with open(plot_location_out, 'wb') as f:
-        f.write(data)
-
 
 
 
     print(plot_location , " is there? ", os.path.exists(plot_location))
-    print(plot_location_out , " is there? ", os.path.exists(plot_location_out))
-    return plot_location_out
+    
+    plot_location="/media/app_reviews/wordcloud.png"
+
+    return plot_location
 
 
 
