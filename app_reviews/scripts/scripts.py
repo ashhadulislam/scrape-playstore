@@ -244,6 +244,7 @@ def get_reviews(url,stop_words):
 
     
     df.to_csv(constants.output_location+"app_revs.csv")
+    df_copy = df.copy()
 
     #here to do NLP
     column_name="review"
@@ -257,7 +258,7 @@ def get_reviews(url,stop_words):
 
     #add the sheet to a list of sheets
     result_df_list=[]
-    result_df_list.append(df)
+    result_df_list.append(df_copy)
 
     xls_name=os.path.join(constants.output_location, "result.xlsx")
     
