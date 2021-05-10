@@ -14,10 +14,10 @@ To run the app hit the following
 If you are running the app locally, make sure you go to app_reviews/scripts/constants.py and change
 from
 env="heroku_uat"
-# env="dev"
+\# env="dev"
 
 to
-# env="heroku_uat"
+\# env="heroku_uat"
 env="dev"
 
 Check the blog post to see how to make it run at
