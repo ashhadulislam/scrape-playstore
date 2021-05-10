@@ -1,4 +1,4 @@
-amazonscraper==0.1.0
+#amazonscraper==0.1.0
 appnope==0.1.0
 backcall==0.1.0
 beautifulsoup4==4.6.3
@@ -30,7 +30,7 @@ jupyter-console==6.0.0
 jupyter-core==4.4.0
 kiwisolver==1.0.1
 lxml==4.2.5
-MarkupSafe==1.0
+#MarkupSafe==1.0
 matplotlib==3.0.2
 mistune==0.8.4
 nbconvert==5.4.0
